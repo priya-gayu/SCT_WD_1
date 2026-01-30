@@ -52,7 +52,7 @@ It dynamically changes its **style on scroll** and provides **hover effects** on
 
 ---
 
-## 📸 Expected Output
+## Expected Output
 - Navigation menu stays fixed at the top
 - Menu background changes when scrolling
 - Menu items change color or style when hovered
