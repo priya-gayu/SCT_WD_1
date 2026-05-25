@@ -1,50 +1,102 @@
-# Interactive Navigation Menu
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Navigation Menu</title>
 
-## Description
-This project demonstrates an interactive navigation menu using **HTML, CSS, and JavaScript**.  
-The navigation bar is fixed at the top of the page and remains visible while scrolling.  
-It changes its **style and color on scroll** and also responds to **hover actions** on menu items.
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
----
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 15px 0;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            z-index: 1000;
+        }
 
-## Features
-- Fixed navigation bar (always visible)
-- Color/style change on page scroll
-- Hover effects on menu items
-- Smooth transitions
-- Simple and clean UI
+        nav.scrolled {
+            background-color: #1e90ff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
 
----
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
 
-##  Technologies Used
-- HTML
-- CSS
-- JavaScript
+        nav ul li {
+            margin: 0 20px;
+        }
 
----
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 8px 12px;
+            transition: color 0.3s, background-color 0.3s;
+        }
 
-## How It Works
-- The navigation bar uses `position: fixed` to stay at the top.
-- CSS `:hover` is used to apply hover effects on menu items.
-- JavaScript detects page scrolling and changes the navigation bar style dynamically.
+        /* Hover effect */
+        nav ul li a:hover {
+            background-color: white;
+            color: #333;
+            border-radius: 5px;
+        }
 
----
+        /* Page content */
+        .content {
+            margin-top: 80px;
+            padding: 20px;
+            height: 2000px; /* for scrolling */
+        }
 
-##  How to Run
-1. Download or clone the repository
-2. Open the `index.html` file in any web browser
-3. Scroll the page and hover over menu items to see the effects
+        h1 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
 
----
+<body>
 
-##  Project Structure
-       -index.html
-       -README.md
----
+    <nav id="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 
-##  Output
-- Menu remains fixed while scrolling
-- Background color changes after scrolling
-- Menu items change color on hover
+    <div class="content">
+        <h1>Scroll Down</h1>
+        <p>
+            This is an example page to demonstrate a fixed navigation bar.
+            When you scroll down, the navigation bar changes color.
+        </p>
+    </div>
 
----
+    <script>
+        const navbar = document.getElementById("navbar");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+
+</body>
+</html>
